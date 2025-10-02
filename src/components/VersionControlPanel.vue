@@ -95,7 +95,7 @@
           <div class="current-branch">
             <h5>当前分支</h5>
             <div class="branch-item current">
-              <el-icon><Branch /></el-icon>
+              <el-icon><Document /></el-icon>
               <span>{{ currentBranch }}</span>
               <el-tag type="success" size="small">当前</el-tag>
             </div>
@@ -116,7 +116,7 @@
               class="branch-item"
               @click="switchBranch(branch)"
             >
-              <el-icon><Branch /></el-icon>
+              <el-icon><Document /></el-icon>
               <span>{{ branch.name }}</span>
               <span class="branch-info">{{ branch.lastCommit }}</span>
             </div>
@@ -176,7 +176,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import {
-  Refresh, Upload, Branch, Plus, Document, Edit, Delete, Warning
+  Refresh, Upload, Plus, Document, Edit, Delete, Warning
 } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 

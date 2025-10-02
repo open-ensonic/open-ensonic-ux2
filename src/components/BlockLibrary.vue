@@ -123,9 +123,9 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import {
-  Search, Cpu, Filter, TrendCharts, Monitor, Tools,
+  Search, Cpu, Filter, Monitor, Tools,
   Connection, Microphone, VideoCamera, DataAnalysis,
-  PieChart, BarChart, LineChart, Histogram
+  PieChart, Histogram
 } from '@element-plus/icons-vue'
 
 // 搜索文本
@@ -147,15 +147,15 @@ const blockLibrary = {
     { id: 'band_stop_filter', name: '带阻滤波器', icon: 'Filter', type: 'filter' }
   ],
   analysis: [
-    { id: 'fft', name: 'FFT', icon: 'TrendCharts', type: 'analysis' },
-    { id: 'spectrum_analyzer', name: '频谱分析仪', icon: 'BarChart', type: 'analysis' },
+    { id: 'fft', name: 'FFT', icon: 'DataAnalysis', type: 'analysis' },
+    { id: 'spectrum_analyzer', name: '频谱分析仪', icon: 'PieChart', type: 'analysis' },
     { id: 'power_meter', name: '功率计', icon: 'PieChart', type: 'analysis' },
     { id: 'constellation', name: '星座图', icon: 'Histogram', type: 'analysis' }
   ],
   gui: [
-    { id: 'time_sink', name: '时域显示', icon: 'LineChart', type: 'gui' },
-    { id: 'freq_sink', name: '频域显示', icon: 'BarChart', type: 'gui' },
-    { id: 'waterfall_sink', name: '瀑布图', icon: 'TrendCharts', type: 'gui' },
+    { id: 'time_sink', name: '时域显示', icon: 'Monitor', type: 'gui' },
+    { id: 'freq_sink', name: '频域显示', icon: 'PieChart', type: 'gui' },
+    { id: 'waterfall_sink', name: '瀑布图', icon: 'DataAnalysis', type: 'gui' },
     { id: 'number_sink', name: '数值显示', icon: 'Monitor', type: 'gui' }
   ],
   custom: [

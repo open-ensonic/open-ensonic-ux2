@@ -43,7 +43,7 @@
         </div>
         <textarea
           ref="codeEditor"
-          v-model="codeContent[activeLanguage]"
+          v-model="codeContent[activeLanguage as keyof CodeContent]"
           class="code-textarea"
           :placeholder="getPlaceholder()"
         ></textarea>
@@ -89,7 +89,11 @@ const codeEditor = ref<HTMLTextAreaElement>()
 const outputContent = ref<HTMLElement>()
 
 // 代码内容
-const codeContent = reactive({
+interface CodeContent {
+  [key: string]: string
+}
+
+const codeContent: CodeContent = reactive({
   python: `# Python 代码示例
 import numpy as np
 import matplotlib.pyplot as plt
@@ -177,7 +181,7 @@ const addOutput = (text: string, type = 'info') => {
 const runCode = async () => {
   if (isRunning.value) return
   
-  const code = codeContent[activeLanguage.value].trim()
+  const code = codeContent[activeLanguage.value as keyof CodeContent].trim()
   if (!code) {
     ElMessage.warning('请输入代码')
     return
@@ -239,7 +243,7 @@ const clearOutput = () => {
 
 // 加载模板
 const loadTemplate = () => {
-  const templates = {
+  const templates: CodeContent = {
     python: `# GNU Radio Python 模块模板
 #!/usr/bin/env python3
 
@@ -313,13 +317,13 @@ int custom_block::work(int noutput_items,
 `
   }
   
-  codeContent[activeLanguage.value] = templates[activeLanguage.value]
+  codeContent[activeLanguage.value as keyof CodeContent] = templates[activeLanguage.value as keyof CodeContent]
   ElMessage.success('模板已加载')
 }
 
 // 保存代码
 const saveCode = () => {
-  const code = codeContent[activeLanguage.value]
+  const code = codeContent[activeLanguage.value as keyof CodeContent]
   const extension = activeLanguage.value === 'python' ? 'py' : 'cpp'
   const filename = `sandbox_code.${extension}`
   

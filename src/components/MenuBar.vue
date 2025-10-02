@@ -71,7 +71,7 @@
         </el-menu-item>
         <el-divider />
         <el-menu-item index="edit-cut" @click="emit('menu-action', 'edit.cut')">
-          <el-icon><Scissors /></el-icon>
+          <el-icon><CopyDocument /></el-icon>
           剪切
         </el-menu-item>
         <el-menu-item index="edit-copy" @click="emit('menu-action', 'edit.copy')">
@@ -226,7 +226,7 @@
 <script setup lang="ts">
 import {
   FolderOpened, Document, Camera, RefreshLeft, RefreshRight,
-  Scissors, CopyDocument, DocumentCopy, Delete, Setting,
+  CopyDocument, DocumentCopy, Delete, Setting,
   ZoomIn, ZoomOut, Search, Cpu, VideoPlay, VideoPause, InfoFilled
 } from '@element-plus/icons-vue'
 
