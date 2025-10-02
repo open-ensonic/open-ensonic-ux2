@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
 export default defineConfig({
+  base: '/open-ensonic-ux2/',
   plugins: [vue()],
   resolve: {
     alias: {
